@@ -256,7 +256,7 @@
 				DEVELOPMENT_TEAM = 4TPDCY22V9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Where Bixi";
+				INFOPLIST_KEY_CFBundleDisplayName = "Velo Radar";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "WhereBixi uses your location to point you toward nearby BIXI stations.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -291,7 +291,7 @@
 				DEVELOPMENT_TEAM = 4TPDCY22V9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Where Bixi";
+				INFOPLIST_KEY_CFBundleDisplayName = "Velo Radar";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "WhereBixi uses your location to point you toward nearby BIXI stations.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

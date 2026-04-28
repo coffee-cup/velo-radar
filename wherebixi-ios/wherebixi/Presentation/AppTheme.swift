@@ -3,7 +3,11 @@ import UIKit
 
 enum AppTheme {
     enum Colors {
-        static let regularBike = Color(uiColor: .systemRed)
+        static let regularBike = Color(uiColor: UIColor { traitCollection in
+            traitCollection.userInterfaceStyle == .dark
+                ? UIColor(red: 1.00, green: 0.42, blue: 0.44, alpha: 1.0)
+                : UIColor(red: 0.93, green: 0.27, blue: 0.30, alpha: 1.0)
+        })
         static let electricBike = Color(uiColor: .systemBlue)
         static let dock = Color(uiColor: .systemGray)
         static let glassStroke = Color.primary.opacity(0.10)
