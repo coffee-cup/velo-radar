@@ -1,7 +1,0 @@
-<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <title>Cream center bike radar sweep</title>
-  <rect width="1024" height="1024" rx="224" fill="#F7F1E6"/>
-  <path d="M512 512 L822 314 A370 370 0 0 1 882 512 Z" fill="#171717" opacity="0.12"/>
-  <path d="M512 512 m-330 0 a330 330 0 1 0 660 0 a330 330 0 1 0 -660 0 M512 512 m-205 0 a205 205 0 1 0 410 0 a205 205 0 1 0 -410 0" stroke="#171717" stroke-width="34" opacity="0.28"/>
-  <path d="M318 638a90 90 0 1 0 180 0a90 90 0 1 0 -180 0 M526 638a90 90 0 1 0 180 0a90 90 0 1 0 -180 0 M408 638 L492 490 L564 638 L408 638 L526 638 L492 490 H586 M586 490 L638 430 H694 M464 446 H524" stroke="#171717" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
