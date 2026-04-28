@@ -1,0 +1,7 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Wheel sweep mark light</title>
+  <rect width="1024" height="1024" fill="#F4EFE6"/>
+  <path d="M512 512 L842 286 A400 400 0 0 1 912 512 Z" fill="#111111" opacity="0.16"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M512 178a334 334 0 1 0 0 668a334 334 0 1 0 0-668Zm0 84a250 250 0 1 1 0 500a250 250 0 1 1 0-500Z" fill="#111111"/>
+  <path d="M350 650 L512 364 L674 650 H582 L512 528 L442 650 Z" fill="#F4EFE6"/>
+</svg>

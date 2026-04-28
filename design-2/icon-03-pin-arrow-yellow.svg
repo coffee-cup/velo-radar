@@ -1,0 +1,6 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Pin arrow yellow</title>
+  <rect width="1024" height="1024" fill="#F5F1E8"/>
+  <path fill="#F5C518" d="M512 130 C661 130 783 252 783 401 C783 580 512 894 512 894 C512 894 241 580 241 401 C241 252 363 130 512 130 Z"/>
+  <path fill="#1A1A1A" d="M512 256 L646 510 L512 460 L378 510 Z"/>
+</svg>

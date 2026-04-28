@@ -1,0 +1,12 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Mono line wheel app icon</title>
+  <desc>A stark black and white wheel-radar mark with a small mint target.</desc>
+  <rect width="1024" height="1024" rx="224" fill="#111111"/>
+  <circle cx="512" cy="512" r="314" stroke="#F5F5F5" stroke-width="70"/>
+  <path d="M512 226 V798 M226 512 H798 M310 310 L714 714 M714 310 L310 714" stroke="#F5F5F5" stroke-width="30" stroke-linecap="round" opacity="0.22"/>
+  <circle cx="512" cy="512" r="178" stroke="#F5F5F5" stroke-width="20" opacity="0.42"/>
+  <path d="M512 178 L684 756 L512 654 L340 756 Z" fill="#F5F5F5"/>
+  <path d="M512 318 L596 626 L512 576 L428 626 Z" fill="#111111" opacity="0.20"/>
+  <circle cx="684" cy="340" r="50" fill="#A7F3D0"/>
+  <circle cx="684" cy="340" r="78" stroke="#A7F3D0" stroke-width="16" opacity="0.30"/>
+</svg>

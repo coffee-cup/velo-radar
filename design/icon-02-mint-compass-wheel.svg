@@ -1,0 +1,11 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Mint compass wheel app icon</title>
+  <desc>A bike wheel and radar target combined with a small compass arrow cue.</desc>
+  <rect width="1024" height="1024" rx="224" fill="#0B1320"/>
+  <circle cx="512" cy="512" r="350" stroke="#34D399" stroke-width="28" opacity="0.18"/>
+  <circle cx="512" cy="512" r="278" stroke="#D9FFF5" stroke-width="62"/>
+  <circle cx="512" cy="512" r="190" stroke="#34D399" stroke-width="18" opacity="0.82"/>
+  <path d="M512 246 V778 M246 512 H778 M328 328 L696 696 M696 328 L328 696" stroke="#D9FFF5" stroke-width="28" stroke-linecap="round" opacity="0.24"/>
+  <path d="M614 250 L792 232 L746 408 L704 340 L576 468 L536 428 L664 300 Z" fill="#6EE7B7"/>
+  <circle cx="512" cy="512" r="70" fill="#0B1320" stroke="#6EE7B7" stroke-width="34"/>
+</svg>

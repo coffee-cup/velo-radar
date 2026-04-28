@@ -1,0 +1,17 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>LG bike stroke</title>
+  <g id="frame" stroke="#1F46FF" stroke-width="56" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M312 660 L470 408 L660 408 L512 660 Z"/>
+    <path d="M470 408 L512 660"/>
+    <path d="M712 660 L660 408 L716 364"/>
+    <path d="M404 408 L520 408"/>
+  </g>
+  <g id="wheels" stroke="#0B1E3F" stroke-width="56" stroke-linecap="round" fill="none">
+    <circle cx="312" cy="660" r="170"/>
+    <circle cx="712" cy="660" r="170"/>
+  </g>
+  <g id="hubs" fill="#E11D2A">
+    <circle cx="312" cy="660" r="34"/>
+    <circle cx="712" cy="660" r="34"/>
+  </g>
+</svg>

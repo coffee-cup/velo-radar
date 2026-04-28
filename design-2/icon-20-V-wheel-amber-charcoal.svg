@@ -1,0 +1,8 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>V wheel amber charcoal</title>
+  <rect width="1024" height="1024" fill="#1A1A1A"/>
+  <path stroke="#F5C518" stroke-width="96" stroke-linecap="round" stroke-linejoin="round" fill="none"
+        d="M268 240 L512 728 L756 240"/>
+  <circle cx="512" cy="744" r="96" fill="#F5C518"/>
+  <circle cx="512" cy="744" r="38" fill="#1A1A1A"/>
+</svg>

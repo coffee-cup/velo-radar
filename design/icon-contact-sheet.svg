@@ -1,0 +1,50 @@
+<svg width="2200" height="1450" viewBox="0 0 2200 1450" xmlns="http://www.w3.org/2000/svg">
+  <title>Velo Radar icon iteration contact sheet</title>
+  <rect width="2200" height="1450" fill="#F8FAFC"/>
+  <text x="80" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="48" font-weight="700" fill="#0F172A">Velo Radar icon iterations</text>
+  <text x="80" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" fill="#475569">Open/import the individual SVGs for Icon Composer. This sheet is just for comparing directions.</text>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="25" fill="#0F172A">
+    <g transform="translate(80 200)">
+      <image href="icon-01-teal-radar-arrow.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">01 Teal radar arrow</text>
+    </g>
+    <g transform="translate(500 200)">
+      <image href="icon-02-mint-compass-wheel.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">02 Mint compass wheel</text>
+    </g>
+    <g transform="translate(920 200)">
+      <image href="icon-03-graphite-dock-pulse.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">03 Graphite dock pulse</text>
+    </g>
+    <g transform="translate(1340 200)">
+      <image href="icon-04-cream-wheel-sweep.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">04 Cream wheel sweep</text>
+    </g>
+    <g transform="translate(1760 200)">
+      <image href="icon-05-forest-v-beacon.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">05 Forest V beacon</text>
+    </g>
+
+    <g transform="translate(80 810)">
+      <image href="icon-06-amber-bike-orbit.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">06 Amber bike orbit</text>
+    </g>
+    <g transform="translate(500 810)">
+      <image href="icon-07-purple-night-radar.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">07 Purple night radar</text>
+    </g>
+    <g transform="translate(920 810)">
+      <image href="icon-08-slate-nearest-dot.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">08 Slate nearest dot</text>
+    </g>
+    <g transform="translate(1340 810)">
+      <image href="icon-09-mono-line-wheel.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">09 Mono line wheel</text>
+    </g>
+    <g transform="translate(1760 810)">
+      <image href="icon-10-green-dock-arrow.svg" width="320" height="320"/>
+      <text x="0" y="370" font-weight="700">10 Green dock arrow</text>
+    </g>
+  </g>
+</svg>

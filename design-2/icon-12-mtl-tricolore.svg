@@ -1,0 +1,14 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>MTL tricolore</title>
+  <rect width="1024" height="512" fill="#E11D2A"/>
+  <rect y="512" width="1024" height="512" fill="#1F46FF"/>
+  <circle cx="512" cy="512" r="284" fill="#F5F1E8"/>
+  <g stroke="#1A1A1A" stroke-width="32" stroke-linecap="round" fill="none">
+    <circle cx="512" cy="512" r="284"/>
+    <line x1="512" y1="232" x2="512" y2="792"/>
+    <line x1="232" y1="512" x2="792" y2="512"/>
+    <line x1="314" y1="314" x2="710" y2="710"/>
+    <line x1="314" y1="710" x2="710" y2="314"/>
+  </g>
+  <circle cx="512" cy="512" r="46" fill="#1A1A1A"/>
+</svg>

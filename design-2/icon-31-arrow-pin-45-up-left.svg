@@ -1,0 +1,18 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Arrow pin 45 up-left</title>
+  <rect width="1024" height="1024" fill="#E11D2A"/>
+  <g transform="translate(0 170)">
+    <g transform="rotate(135 512 395)">
+      <path fill="#FFFFFF" fill-rule="evenodd"
+            d="M512 130 C661 130 783 252 783 401 C783 580 512 894 512 894 C512 894 241 580 241 401 C241 252 363 130 512 130 Z
+               M652 395 a140 140 0 1 0 -280 0 a140 140 0 1 0 280 0 Z"/>
+    </g>
+    <g stroke="#FFFFFF" stroke-width="22" stroke-linecap="round">
+      <line x1="512" y1="280" x2="512" y2="510"/>
+      <line x1="397" y1="395" x2="627" y2="395"/>
+      <line x1="430" y1="313" x2="594" y2="477"/>
+      <line x1="430" y1="477" x2="594" y2="313"/>
+    </g>
+    <circle cx="512" cy="395" r="34" fill="#FFFFFF"/>
+  </g>
+</svg>

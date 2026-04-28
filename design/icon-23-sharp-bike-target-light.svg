@@ -1,0 +1,7 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Sharp bike target light</title>
+  <rect width="1024" height="1024" fill="#F4EFE6"/>
+  <path d="M512 512 L832 320 A372 372 0 0 1 884 512 Z" fill="#111111" opacity="0.12"/>
+  <path d="M512 512 m-312 0 a312 312 0 1 0 624 0 a312 312 0 1 0 -624 0 M512 512 m-88 0 a88 88 0 1 0 176 0 a88 88 0 1 0 -176 0" stroke="#111111" stroke-width="34" opacity="0.28"/>
+  <path d="M288 660a94 94 0 1 0 188 0a94 94 0 1 0 -188 0 M548 660a94 94 0 1 0 188 0a94 94 0 1 0 -188 0 M382 660 L500 444 L598 660 L452 660 L560 444 H648 L692 660 M648 444 L706 386 H760 M462 392 H542" stroke="#111111" stroke-width="48" stroke-linecap="butt" stroke-linejoin="miter"/>
+</svg>

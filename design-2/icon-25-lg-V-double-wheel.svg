@@ -1,0 +1,14 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>LG V double wheel</title>
+  <g id="frame" stroke="#E11D2A" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M288 724 L512 282 L736 724"/>
+  </g>
+  <g id="wheels" stroke="#1F46FF" stroke-width="60" stroke-linecap="round" fill="none">
+    <circle cx="288" cy="724" r="146"/>
+    <circle cx="736" cy="724" r="146"/>
+  </g>
+  <g id="hubs" fill="#FFFFFF">
+    <circle cx="288" cy="724" r="34"/>
+    <circle cx="736" cy="724" r="34"/>
+  </g>
+</svg>

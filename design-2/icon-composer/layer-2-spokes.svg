@@ -1,0 +1,9 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Spokes</title>
+  <g stroke="#FFFFFF" stroke-width="22" stroke-linecap="round">
+    <line x1="512" y1="450" x2="512" y2="680"/>
+    <line x1="397" y1="565" x2="627" y2="565"/>
+    <line x1="430" y1="483" x2="594" y2="647"/>
+    <line x1="430" y1="647" x2="594" y2="483"/>
+  </g>
+</svg>

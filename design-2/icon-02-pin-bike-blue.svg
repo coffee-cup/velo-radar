@@ -1,0 +1,15 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Pin bike blue</title>
+  <rect width="1024" height="1024" fill="#F5F1E8"/>
+  <path fill="#1F46FF" d="M512 130 C661 130 783 252 783 401 C783 580 512 894 512 894 C512 894 241 580 241 401 C241 252 363 130 512 130 Z"/>
+  <g fill="#F5F1E8">
+    <circle cx="438" cy="445" r="58"/>
+    <circle cx="586" cy="445" r="58"/>
+  </g>
+  <g fill="#1F46FF">
+    <circle cx="438" cy="445" r="14"/>
+    <circle cx="586" cy="445" r="14"/>
+  </g>
+  <path stroke="#F5F1E8" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"
+        d="M438 445 L520 360 L586 445 M520 360 L520 312 M460 312 L548 312 M438 445 L500 312"/>
+</svg>

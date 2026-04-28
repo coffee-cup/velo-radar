@@ -1,0 +1,13 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Slate nearest dot app icon</title>
+  <desc>A minimal radar screen pointing toward the nearest station dot.</desc>
+  <rect width="1024" height="1024" rx="224" fill="#0F172A"/>
+  <circle cx="512" cy="512" r="330" stroke="#94A3B8" stroke-width="22" opacity="0.28"/>
+  <circle cx="512" cy="512" r="226" stroke="#94A3B8" stroke-width="20" opacity="0.26"/>
+  <circle cx="512" cy="512" r="122" stroke="#94A3B8" stroke-width="18" opacity="0.24"/>
+  <path d="M512 512 L700 352" stroke="#A3E635" stroke-width="44" stroke-linecap="round" opacity="0.88"/>
+  <path d="M464 652 L548 330 L608 586 L542 540 Z" fill="#F8FAFC"/>
+  <circle cx="700" cy="352" r="62" fill="#A3E635"/>
+  <circle cx="700" cy="352" r="100" stroke="#A3E635" stroke-width="20" opacity="0.24"/>
+  <circle cx="512" cy="512" r="30" fill="#F8FAFC"/>
+</svg>

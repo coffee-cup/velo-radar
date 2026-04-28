@@ -1,0 +1,8 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Pin chevron red</title>
+  <rect width="1024" height="1024" fill="#F5F1E8"/>
+  <path fill="#E11D2A" d="M512 130 C661 130 783 252 783 401 C783 580 512 894 512 894 C512 894 241 580 241 401 C241 252 363 130 512 130 Z"/>
+  <path stroke="#F5F1E8" stroke-width="56" stroke-linecap="round" stroke-linejoin="round" fill="none"
+        d="M398 480 L512 320 L626 480"/>
+  <circle cx="512" cy="556" r="32" fill="#F5F1E8"/>
+</svg>

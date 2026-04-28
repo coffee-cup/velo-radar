@@ -1,0 +1,13 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Purple night radar app icon</title>
+  <desc>A night-radar target with a white navigation arrow and lime station dot.</desc>
+  <rect width="1024" height="1024" rx="224" fill="#2E1065"/>
+  <circle cx="512" cy="512" r="356" fill="#4C1D95" opacity="0.72"/>
+  <path d="M512 512 L794 288 A356 356 0 0 1 866 512 Z" fill="#FDE68A" opacity="0.22"/>
+  <circle cx="512" cy="512" r="292" stroke="#C4B5FD" stroke-width="24" opacity="0.34"/>
+  <circle cx="512" cy="512" r="190" stroke="#C4B5FD" stroke-width="20" opacity="0.28"/>
+  <circle cx="512" cy="512" r="92" stroke="#C4B5FD" stroke-width="18" opacity="0.24"/>
+  <path d="M512 170 L708 812 L512 696 L316 812 Z" fill="#F5F3FF"/>
+  <circle cx="704" cy="334" r="58" fill="#A3E635"/>
+  <circle cx="704" cy="334" r="84" stroke="#A3E635" stroke-width="18" opacity="0.28"/>
+</svg>

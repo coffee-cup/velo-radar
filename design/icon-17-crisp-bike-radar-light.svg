@@ -1,0 +1,7 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Crisp bike radar light</title>
+  <rect width="1024" height="1024" fill="#F4EFE6"/>
+  <path d="M512 512 L840 300 A386 386 0 0 1 898 512 Z" fill="#111111" opacity="0.11"/>
+  <path d="M512 512 m-322 0 a322 322 0 1 0 644 0 a322 322 0 1 0 -644 0 M512 512 m-202 0 a202 202 0 1 0 404 0 a202 202 0 1 0 -404 0" stroke="#111111" stroke-width="28" opacity="0.26"/>
+  <path d="M278 652a102 102 0 1 0 204 0a102 102 0 1 0 -204 0 M542 652a102 102 0 1 0 204 0a102 102 0 1 0 -204 0 M380 652 L492 458 L588 652 L444 652 L548 458 H642 L692 652 M642 458 L702 398 H754 M458 406 H540" stroke="#111111" stroke-width="42" stroke-linecap="butt" stroke-linejoin="miter"/>
+</svg>

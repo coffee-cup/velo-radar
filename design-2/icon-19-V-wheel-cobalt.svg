@@ -1,0 +1,8 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>V wheel cobalt</title>
+  <rect width="1024" height="1024" fill="#1F46FF"/>
+  <path stroke="#FFFFFF" stroke-width="96" stroke-linecap="round" stroke-linejoin="round" fill="none"
+        d="M268 240 L512 728 L756 240"/>
+  <circle cx="512" cy="744" r="92" fill="#FFFFFF"/>
+  <circle cx="512" cy="744" r="36" fill="#1F46FF"/>
+</svg>
