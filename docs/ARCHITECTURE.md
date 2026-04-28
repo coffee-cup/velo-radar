@@ -60,6 +60,11 @@ The app is still a single iOS target and module under `wherebixi-ios/wherebixi/`
   - direction indicator UI
   - finder view model
 
+### Testing
+
+- `wherebixiTests` is an XCTest unit test target for pure domain, data, and formatting behavior.
+- Tests cover station selection filtering/nearest-station ranking, search quantity clamping, total bike counts, GBFS DTO decoding and derived classic-bike counts, repository feed joining/caching with mocked URLSession responses, and display text formatting.
+
 ### Data source
 
 - BIXI data comes from the public GBFS v2.2 feeds documented in `docs/BIXI_API.md`.
@@ -119,7 +124,7 @@ Location permission is requested in context from the finder screen, not at app l
 
 ## Planned / next
 
-- Add unit tests for `StationSelector` and feed joining.
+- Add view model tests after introducing protocol-based repository/location dependencies and an injectable refresh clock.
 - Add a more nuanced "prefer e-bike" mode that does not choose an unreasonable detour.
 - Consider persisting the last selected mode.
 - Consider an "Open in Maps" secondary action.
