@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = StationFinderViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if viewModel.selectedMode == nil {
+                ModePickerView { mode in
+                    viewModel.selectMode(mode)
+                }
+            } else {
+                StationFinderView(viewModel: viewModel)
+            }
         }
-        .padding()
     }
 }
 
