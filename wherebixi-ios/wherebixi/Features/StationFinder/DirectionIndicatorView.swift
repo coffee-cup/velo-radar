@@ -4,6 +4,7 @@ import SwiftUI
 struct DirectionIndicatorView: View {
     let bearingDegrees: CLLocationDirection
     let headingDegrees: CLLocationDirection?
+    let accentColor: Color
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @ScaledMetric(relativeTo: .largeTitle) private var indicatorSize: CGFloat = 220
@@ -21,18 +22,19 @@ struct DirectionIndicatorView: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(.tint.opacity(0.12))
+                .fill(accentColor.opacity(0.10))
 
             Circle()
-                .stroke(.tint.opacity(0.24), lineWidth: 1)
+                .stroke(AppTheme.Colors.glassStroke, lineWidth: 1)
 
             Image(systemName: "location.north.fill")
                 .font(.system(size: indicatorSize * 0.58, weight: .semibold))
-                .foregroundStyle(.tint)
+                .foregroundStyle(accentColor)
                 .opacity(headingDegrees == nil ? 0.45 : 1)
                 .rotationEffect(.degrees(currentRotationDegrees))
         }
         .frame(width: indicatorSize, height: indicatorSize)
+        .glassEffect(AppTheme.glass(tint: accentColor.opacity(0.18)), in: Circle())
         .accessibilityHidden(true)
         .onAppear {
             displayedRotationDegrees = targetRotationDegrees
@@ -76,8 +78,8 @@ private extension Double {
 
 #Preview {
     VStack(spacing: 32) {
-        DirectionIndicatorView(bearingDegrees: 45, headingDegrees: 0)
-        DirectionIndicatorView(bearingDegrees: 45, headingDegrees: nil)
+        DirectionIndicatorView(bearingDegrees: 45, headingDegrees: 0, accentColor: AppTheme.Colors.electricBike)
+        DirectionIndicatorView(bearingDegrees: 45, headingDegrees: nil, accentColor: AppTheme.Colors.regularBike)
     }
     .padding()
 }

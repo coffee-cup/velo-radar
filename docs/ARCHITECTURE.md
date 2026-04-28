@@ -23,8 +23,10 @@ The app avoids a map-first interaction. The primary interface is a simple direct
   - BIXI freshness/stale-data messaging.
   - A rider/dock count stepper.
   - An "Any bike" vs "E-bike" segmented control for bike mode.
+  - Lightweight native theming with Liquid Glass cards/panels/buttons, Dynamic Type typography, red regular-bike accents, blue e-bike accents, and neutral dock accents.
   - Native back navigation, including the standard interactive swipe-back gesture.
   - A toolbar refresh control.
+- SwiftUI previews include a ready finder preview with sample station, distance, direction, availability, and freshness data.
 - Empty and error states are implemented for:
   - Location permission not requested.
   - Location permission denied/restricted.
@@ -51,6 +53,7 @@ The app is still a single iOS target and module under `wherebixi-ios/wherebixi/`
   - `LocationService`
 - `Presentation/`
   - display formatting helpers
+  - lightweight theme tokens for colors, typography, Liquid Glass styling, and app background
 - `Features/StationFinder/`
   - mode picker UI
   - finder UI
@@ -118,7 +121,6 @@ Location permission is requested in context from the finder screen, not at app l
 
 - Add unit tests for `StationSelector` and feed joining.
 - Add a more nuanced "prefer e-bike" mode that does not choose an unreasonable detour.
-- Add better preview/demo data for the finder screen.
 - Consider persisting the last selected mode and preferences.
 - Consider an "Open in Maps" secondary action.
 - Consider route distance instead of straight-line distance.

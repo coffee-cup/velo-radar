@@ -5,10 +5,6 @@ struct ModePickerView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
-            Text("What do you need?")
-                .font(.title3)
-                .foregroundStyle(.secondary)
-
             VStack(spacing: 16) {
                 ForEach(SearchMode.allCases) { mode in
                     Button {
@@ -23,15 +19,10 @@ struct ModePickerView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-            Text("Live BIXI availability")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-                .frame(maxWidth: .infinity, alignment: .center)
         }
         .padding(24)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(.background)
+        .background { AppBackground() }
         .navigationTitle("WhereBixi")
         .navigationBarTitleDisplayMode(.large)
     }
@@ -40,15 +31,19 @@ struct ModePickerView: View {
 private struct ModeChoiceCard: View {
     let mode: SearchMode
 
+    private var accentColor: Color {
+        AppTheme.Colors.modePickerAccent(for: mode)
+    }
+
     var body: some View {
         VStack(spacing: 18) {
             Image(systemName: mode.systemImageName)
                 .font(.system(size: 56, weight: .semibold))
-                .foregroundStyle(.tint)
+                .foregroundStyle(accentColor)
 
             VStack(spacing: 8) {
                 Text(mode.title)
-                    .font(.title.bold())
+                    .font(AppTheme.Typography.modeTitle)
                     .foregroundStyle(.primary)
 
                 Text(mode.subtitle)
@@ -60,12 +55,15 @@ private struct ModeChoiceCard: View {
         }
         .padding(28)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.regularMaterial, in: .rect(cornerRadius: 32, style: .continuous))
+        .glassEffect(
+            AppTheme.glass(tint: accentColor.opacity(0.22), interactive: true),
+            in: .rect(cornerRadius: AppTheme.CornerRadius.card, style: .continuous)
+        )
         .overlay {
-            RoundedRectangle(cornerRadius: 32, style: .continuous)
-                .stroke(.quaternary, lineWidth: 1)
+            RoundedRectangle(cornerRadius: AppTheme.CornerRadius.card, style: .continuous)
+                .stroke(accentColor.opacity(0.22), lineWidth: 1)
         }
-        .contentShape(.rect(cornerRadius: 32, style: .continuous))
+        .contentShape(.rect(cornerRadius: AppTheme.CornerRadius.card, style: .continuous))
     }
 }
 

@@ -9,6 +9,10 @@ struct StationFinderView: View {
         viewModel.selectedMode ?? .bikes
     }
 
+    private var accentColor: Color {
+        AppTheme.Colors.accent(for: mode, bikePreference: viewModel.bikePreference)
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             Spacer(minLength: 16)
@@ -22,7 +26,8 @@ struct StationFinderView: View {
         }
         .padding(24)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.background)
+        .background { AppBackground() }
+        .tint(accentColor)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
@@ -69,7 +74,9 @@ struct StationFinderView: View {
                 availabilityText: viewModel.availabilityText(for: match.station),
                 freshnessText: viewModel.freshnessText,
                 isStale: viewModel.isDataStale,
-                headingDegrees: viewModel.headingDegrees
+                headingDegrees: viewModel.headingDegrees,
+                mode: mode,
+                accentColor: accentColor
             )
         case .noMatch:
             noMatchView
@@ -83,11 +90,12 @@ struct StationFinderView: View {
             Label("Use Your Location", systemImage: "location.fill")
         } description: {
             Text("WhereBixi uses your location to point you toward the closest station. Your location stays on this device.")
+                .padding(.top, 8)
         } actions: {
             Button("Use My Location") {
                 viewModel.requestLocationPermission()
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.glassProminent)
             .controlSize(.large)
         }
     }
@@ -103,7 +111,7 @@ struct StationFinderView: View {
                     openURL(settingsURL)
                 }
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.glassProminent)
             .controlSize(.large)
         }
     }
@@ -117,7 +125,8 @@ struct StationFinderView: View {
             Button("Refresh") {
                 viewModel.refreshNow()
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.glassProminent)
+            .controlSize(.large)
         }
     }
 
@@ -130,21 +139,37 @@ struct StationFinderView: View {
             Button("Try Again") {
                 viewModel.retry()
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.glassProminent)
+            .controlSize(.large)
         }
     }
 
     private var preferencesPanel: some View {
         VStack(spacing: 16) {
             Stepper(value: $viewModel.requestedQuantity, in: 1...6) {
-                HStack {
-                    Text(mode.quantityLabel)
+                HStack(spacing: 12) {
+                    Image(systemName: mode == .bikes ? "person.2.fill" : "arrow.down.circle.fill")
+                        .foregroundStyle(accentColor)
+                        .frame(width: 24)
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(mode.quantityLabel)
+                            .font(.headline)
+
+                        Text(mode == .bikes ? "How many bikes to find" : "How many open docks to find")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+
                     Spacer()
+
                     Text("\(viewModel.requestedQuantity)")
                         .font(.headline)
+                        .foregroundStyle(accentColor)
                         .monospacedDigit()
                 }
             }
+            .controlSize(.large)
 
             if mode == .bikes {
                 Picker("Bike type", selection: $viewModel.bikePreference) {
@@ -153,10 +178,18 @@ struct StationFinderView: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .tint(accentColor)
             }
         }
         .padding(18)
-        .background(.thinMaterial, in: .rect(cornerRadius: 24, style: .continuous))
+        .glassEffect(
+            AppTheme.glass(tint: accentColor.opacity(0.16)),
+            in: .rect(cornerRadius: AppTheme.CornerRadius.panel, style: .continuous)
+        )
+        .overlay {
+            RoundedRectangle(cornerRadius: AppTheme.CornerRadius.panel, style: .continuous)
+                .stroke(AppTheme.Colors.glassStroke, lineWidth: 1)
+        }
         .accessibilityElement(children: .contain)
     }
 }
@@ -169,17 +202,20 @@ private struct DirectionResultView: View {
     let freshnessText: String?
     let isStale: Bool
     let headingDegrees: Double?
+    let mode: SearchMode
+    let accentColor: Color
 
     var body: some View {
         VStack(spacing: 20) {
             DirectionIndicatorView(
                 bearingDegrees: match.bearingDegrees,
-                headingDegrees: headingDegrees
+                headingDegrees: headingDegrees,
+                accentColor: accentColor
             )
 
             VStack(spacing: 4) {
                 Text(distanceText)
-                    .font(.largeTitle.bold())
+                    .font(AppTheme.Typography.heroDistance)
                     .monospacedDigit()
 
                 Text(directionText)
@@ -193,10 +229,7 @@ private struct DirectionResultView: View {
                     .multilineTextAlignment(.center)
                     .lineLimit(3)
 
-                Text(availabilityText)
-                    .font(.headline)
-                    .foregroundStyle(.secondary)
-                    .monospacedDigit()
+                AvailabilityBadges(station: match.station, mode: mode)
             }
 
             VStack(spacing: 6) {
@@ -214,6 +247,91 @@ private struct DirectionResultView: View {
         }
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(distanceText) \(directionText). \(match.station.name). \(availabilityText).")
+    }
+}
+
+private struct AvailabilityBadges: View {
+    let station: BixiStation
+    let mode: SearchMode
+
+    var body: some View {
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 10) {
+                badgeContent
+            }
+
+            VStack(spacing: 10) {
+                badgeContent
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var badgeContent: some View {
+        switch mode {
+        case .bikes:
+            if station.classicBikesAvailable > 0 {
+                AvailabilityBadge(
+                    count: station.classicBikesAvailable,
+                    singular: "regular bike",
+                    plural: "regular bikes",
+                    systemImageName: "bicycle",
+                    color: AppTheme.Colors.regularBike
+                )
+            }
+
+            if station.electricBikesAvailable > 0 {
+                AvailabilityBadge(
+                    count: station.electricBikesAvailable,
+                    singular: "e-bike",
+                    plural: "e-bikes",
+                    systemImageName: "bolt.fill",
+                    color: AppTheme.Colors.electricBike
+                )
+            }
+        case .docks:
+            AvailabilityBadge(
+                count: station.docksAvailable,
+                singular: "dock",
+                plural: "docks",
+                systemImageName: "arrow.down.circle.fill",
+                color: AppTheme.Colors.dock
+            )
+        }
+    }
+}
+
+private struct AvailabilityBadge: View {
+    let count: Int
+    let singular: String
+    let plural: String
+    let systemImageName: String
+    let color: Color
+
+    private var label: String {
+        count == 1 ? singular : plural
+    }
+
+    var body: some View {
+        Label {
+            Text("\(count) \(label)")
+                .foregroundStyle(.primary)
+                .monospacedDigit()
+        } icon: {
+            Image(systemName: systemImageName)
+                .foregroundStyle(color)
+        }
+        .font(.headline)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .glassEffect(
+            AppTheme.glass(tint: color.opacity(0.18)),
+            in: Capsule()
+        )
+        .overlay {
+            Capsule()
+                .stroke(color.opacity(0.22), lineWidth: 1)
+        }
     }
 }
 
@@ -240,6 +358,8 @@ private struct LoadingStateView: View {
     }
 }
 
+#if DEBUG
 #Preview("Finder") {
-    StationFinderView(viewModel: StationFinderViewModel())
+    StationFinderView(viewModel: .previewReady())
 }
+#endif

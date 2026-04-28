@@ -28,6 +28,7 @@ struct ContentView: View {
                 viewModel.returnToModePicker()
             }
         }
+        .tint(AppTheme.Colors.electricBike)
     }
 }
 

@@ -258,3 +258,49 @@ final class StationFinderViewModel: ObservableObject {
         return "Could not load BIXI stations. Try again."
     }
 }
+
+#if DEBUG
+extension StationFinderViewModel {
+    static func previewReady(
+        mode: SearchMode = .bikes,
+        bikePreference: BikePreference = .any
+    ) -> StationFinderViewModel {
+        let viewModel = StationFinderViewModel()
+        let station = BixiStation(
+            id: "preview-berri-uqam",
+            name: "Berri-UQAM / de Maisonneuve",
+            latitude: 45.5153,
+            longitude: -73.5610,
+            capacity: 31,
+            classicBikesAvailable: 7,
+            electricBikesAvailable: 3,
+            docksAvailable: 11,
+            isInstalled: true,
+            isRenting: true,
+            isReturning: true,
+            statusLastReported: Date().addingTimeInterval(-45),
+            feedLastUpdated: Date().addingTimeInterval(-20),
+            feedTTL: 60
+        )
+        let match = StationMatch(
+            station: station,
+            distanceMeters: 420,
+            bearingDegrees: 52
+        )
+
+        viewModel.selectedMode = mode
+        viewModel.requestedQuantity = mode == .bikes ? 2 : 1
+        viewModel.bikePreference = bikePreference
+        viewModel.headingDegrees = 18
+        viewModel.stationSnapshot = StationSnapshot(
+            stations: [station],
+            fetchedAt: Date(),
+            feedLastUpdated: station.feedLastUpdated,
+            feedTTL: station.feedTTL
+        )
+        viewModel.contentState = .ready(match)
+
+        return viewModel
+    }
+}
+#endif

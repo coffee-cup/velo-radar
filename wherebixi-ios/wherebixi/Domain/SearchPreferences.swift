@@ -28,7 +28,7 @@ enum SearchMode: String, CaseIterable, Identifiable {
     var subtitle: String {
         switch self {
         case .bikes:
-            "Closest station with bikes ready to ride"
+            "Closest station with ready bikes"
         case .docks:
             "Closest station with room to return"
         }

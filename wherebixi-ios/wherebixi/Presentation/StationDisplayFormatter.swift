@@ -38,12 +38,23 @@ enum StationDisplayFormatter {
     static func availabilityText(for station: BixiStation, mode: SearchMode) -> String {
         switch mode {
         case .bikes:
-            if station.electricBikesAvailable > 0 {
-                return "\(station.totalBikesAvailable) bikes · \(station.electricBikesAvailable) e-bikes"
+            let regularText = pluralized(station.classicBikesAvailable, singular: "regular bike", plural: "regular bikes")
+            let electricText = pluralized(station.electricBikesAvailable, singular: "e-bike", plural: "e-bikes")
+
+            switch (station.classicBikesAvailable > 0, station.electricBikesAvailable > 0) {
+            case (true, true):
+                return "\(regularText), \(electricText) available"
+            case (true, false):
+                return "\(regularText) available"
+            case (false, true), (false, false):
+                return "\(electricText) available"
             }
-            return "\(station.totalBikesAvailable) bikes available"
         case .docks:
-            return "\(station.docksAvailable) docks available"
+            return "\(pluralized(station.docksAvailable, singular: "dock", plural: "docks")) available"
         }
+    }
+
+    private static func pluralized(_ count: Int, singular: String, plural: String) -> String {
+        "\(count) \(count == 1 ? singular : plural)"
     }
 }
