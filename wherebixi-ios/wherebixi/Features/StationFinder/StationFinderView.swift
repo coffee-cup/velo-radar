@@ -11,8 +11,6 @@ struct StationFinderView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            header
-
             Spacer(minLength: 16)
 
             content
@@ -25,34 +23,22 @@ struct StationFinderView: View {
         .padding(24)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.background)
-    }
-
-    private var header: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            HStack {
-                Button("Switch", systemImage: "chevron.left") {
-                    viewModel.returnToModePicker()
-                }
-
-                Spacer()
-
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
                 Button {
                     viewModel.refreshNow()
                 } label: {
                     if viewModel.isRefreshing {
                         ProgressView()
+                            .controlSize(.small)
                     } else {
-                        Image(systemName: "arrow.clockwise")
+                        Label("Refresh", systemImage: "arrow.clockwise")
                     }
                 }
                 .disabled(viewModel.isRefreshing)
                 .accessibilityLabel("Refresh")
                 .accessibilityHint("Reloads live BIXI availability")
             }
-
-            Text(mode.title)
-                .font(.largeTitle.bold())
-                .frame(maxWidth: .infinity, alignment: .center)
         }
     }
 
@@ -126,7 +112,7 @@ struct StationFinderView: View {
         ContentUnavailableView {
             Label("No Station Found", systemImage: "magnifyingglass")
         } description: {
-            Text("Try fewer \(mode == .bikes ? "riders" : "docks") or switch modes.")
+            Text("Try fewer \(mode == .bikes ? "riders" : "docks") or go back and switch modes.")
         } actions: {
             Button("Refresh") {
                 viewModel.refreshNow()

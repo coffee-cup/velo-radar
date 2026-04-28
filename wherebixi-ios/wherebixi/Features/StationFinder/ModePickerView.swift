@@ -5,7 +5,9 @@ struct ModePickerView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
-            header
+            Text("What do you need?")
+                .font(.title3)
+                .foregroundStyle(.secondary)
 
             VStack(spacing: 16) {
                 ForEach(SearchMode.allCases) { mode in
@@ -30,17 +32,8 @@ struct ModePickerView: View {
         .padding(24)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(.background)
-    }
-
-    private var header: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("WhereBixi")
-                .font(.largeTitle.bold())
-
-            Text("What do you need?")
-                .font(.title3)
-                .foregroundStyle(.secondary)
-        }
+        .navigationTitle("WhereBixi")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 

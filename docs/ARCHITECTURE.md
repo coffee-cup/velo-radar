@@ -11,7 +11,7 @@ The app avoids a map-first interaction. The primary interface is a simple direct
 
 ### User experience
 
-- `ContentView` now owns a `StationFinderViewModel` and switches between the start screen and finder screen.
+- `ContentView` owns a `StationFinderViewModel` and presents the app inside a native SwiftUI `NavigationStack`.
 - The start screen is `ModePickerView`, with two large full-width choice cards:
   - Find Bikes
   - Find Docks
@@ -23,7 +23,8 @@ The app avoids a map-first interaction. The primary interface is a simple direct
   - BIXI freshness/stale-data messaging.
   - A rider/dock count stepper.
   - An "Any bike" vs "E-bike" segmented control for bike mode.
-  - Refresh and switch-mode controls.
+  - Native back navigation, including the standard interactive swipe-back gesture.
+  - A toolbar refresh control.
 - Empty and error states are implemented for:
   - Location permission not requested.
   - Location permission denied/restricted.
