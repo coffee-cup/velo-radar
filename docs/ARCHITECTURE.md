@@ -21,8 +21,8 @@ The app avoids a map-first interaction. The primary interface is a simple direct
   - Station name.
   - Bike or dock availability.
   - BIXI freshness/stale-data messaging.
-  - A rider/dock count stepper.
-  - An "Any bike" vs "E-bike" segmented control for bike mode.
+  - A rider/dock count stepper supporting 1–9 bikes/docks, persisted locally across launches.
+  - An "Any bike" vs "E-bike" segmented control for bike mode, persisted locally across launches.
   - Lightweight native theming with Liquid Glass cards/panels/buttons, Dynamic Type typography, red regular-bike accents, blue e-bike accents, and neutral dock accents.
   - Native back navigation, including the standard interactive swipe-back gesture.
   - A toolbar refresh control.
@@ -121,7 +121,7 @@ Location permission is requested in context from the finder screen, not at app l
 
 - Add unit tests for `StationSelector` and feed joining.
 - Add a more nuanced "prefer e-bike" mode that does not choose an unreasonable detour.
-- Consider persisting the last selected mode and preferences.
+- Consider persisting the last selected mode.
 - Consider an "Open in Maps" secondary action.
 - Consider route distance instead of straight-line distance.
 - Consider favorites or recently used stations.

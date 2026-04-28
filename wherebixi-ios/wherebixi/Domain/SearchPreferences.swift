@@ -70,13 +70,19 @@ enum BikePreference: String, CaseIterable, Identifiable {
 }
 
 struct SearchPreferences {
+    static let quantityRange = 1...9
+
     let mode: SearchMode
     let quantity: Int
     let bikePreference: BikePreference
 
     init(mode: SearchMode, quantity: Int, bikePreference: BikePreference = .any) {
         self.mode = mode
-        self.quantity = max(1, quantity)
+        self.quantity = Self.clampedQuantity(quantity)
         self.bikePreference = bikePreference
+    }
+
+    static func clampedQuantity(_ quantity: Int) -> Int {
+        min(max(quantity, quantityRange.lowerBound), quantityRange.upperBound)
     }
 }

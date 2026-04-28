@@ -146,7 +146,7 @@ struct StationFinderView: View {
 
     private var preferencesPanel: some View {
         VStack(spacing: 16) {
-            Stepper(value: $viewModel.requestedQuantity, in: 1...6) {
+            Stepper(value: $viewModel.requestedQuantity, in: SearchPreferences.quantityRange) {
                 HStack(spacing: 12) {
                     Image(systemName: mode == .bikes ? "person.2.fill" : "arrow.down.circle.fill")
                         .foregroundStyle(accentColor)

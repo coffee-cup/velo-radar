@@ -13,6 +13,11 @@ enum FinderContentState {
     case failed(String)
 }
 
+private enum StationFinderPreferenceKey {
+    static let requestedQuantity = "stationFinder.requestedQuantity"
+    static let bikePreference = "stationFinder.bikePreference"
+}
+
 @MainActor
 final class StationFinderViewModel: ObservableObject {
     @Published private(set) var selectedMode: SearchMode?
@@ -20,17 +25,30 @@ final class StationFinderViewModel: ObservableObject {
     @Published private(set) var isRefreshing = false
     @Published private(set) var headingDegrees: CLLocationDirection?
 
-    @Published var requestedQuantity = 1 {
-        didSet { rebuildContentState() }
+    @Published var requestedQuantity = SearchPreferences.quantityRange.lowerBound {
+        didSet {
+            let clampedQuantity = SearchPreferences.clampedQuantity(requestedQuantity)
+            if requestedQuantity != clampedQuantity {
+                requestedQuantity = clampedQuantity
+                return
+            }
+
+            userDefaults.set(requestedQuantity, forKey: StationFinderPreferenceKey.requestedQuantity)
+            rebuildContentState()
+        }
     }
 
     @Published var bikePreference: BikePreference = .any {
-        didSet { rebuildContentState() }
+        didSet {
+            userDefaults.set(bikePreference.rawValue, forKey: StationFinderPreferenceKey.bikePreference)
+            rebuildContentState()
+        }
     }
 
     private let repository: StationRepository
     private let locationService: LocationService
     private let selector: StationSelector
+    private let userDefaults: UserDefaults
     private var stationSnapshot: StationSnapshot?
     private var currentLocation: CLLocation?
     private var authorizationStatus: CLAuthorizationStatus
@@ -43,19 +61,24 @@ final class StationFinderViewModel: ObservableObject {
         self.init(
             repository: StationRepository(),
             locationService: LocationService(),
-            selector: StationSelector()
+            selector: StationSelector(),
+            userDefaults: .standard
         )
     }
 
     init(
         repository: StationRepository,
         locationService: LocationService,
-        selector: StationSelector
+        selector: StationSelector,
+        userDefaults: UserDefaults = .standard
     ) {
         self.repository = repository
         self.locationService = locationService
         self.selector = selector
+        self.userDefaults = userDefaults
         authorizationStatus = locationService.authorizationStatus
+        requestedQuantity = Self.storedRequestedQuantity(in: userDefaults)
+        bikePreference = Self.storedBikePreference(in: userDefaults)
 
         bindLocationService()
     }
@@ -122,6 +145,25 @@ final class StationFinderViewModel: ObservableObject {
     func availabilityText(for station: BixiStation) -> String {
         guard let selectedMode else { return "" }
         return StationDisplayFormatter.availabilityText(for: station, mode: selectedMode)
+    }
+
+    private static func storedRequestedQuantity(in userDefaults: UserDefaults) -> Int {
+        guard userDefaults.object(forKey: StationFinderPreferenceKey.requestedQuantity) != nil else {
+            return SearchPreferences.quantityRange.lowerBound
+        }
+
+        return SearchPreferences.clampedQuantity(
+            userDefaults.integer(forKey: StationFinderPreferenceKey.requestedQuantity)
+        )
+    }
+
+    private static func storedBikePreference(in userDefaults: UserDefaults) -> BikePreference {
+        guard let rawValue = userDefaults.string(forKey: StationFinderPreferenceKey.bikePreference),
+              let preference = BikePreference(rawValue: rawValue) else {
+            return .any
+        }
+
+        return preference
     }
 
     private func bindLocationService() {
