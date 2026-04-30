@@ -71,12 +71,14 @@ struct StationFinderView: View {
                 match: match,
                 distanceText: viewModel.distanceText(for: match),
                 directionText: viewModel.directionText(for: match),
-                availabilityText: viewModel.availabilityText(for: match.station),
                 freshnessText: viewModel.freshnessText,
                 isStale: viewModel.isDataStale,
                 headingDegrees: viewModel.headingDegrees,
                 mode: mode,
-                accentColor: accentColor
+                accentColor: accentColor,
+                onBikePreferenceSelected: { preference in
+                    viewModel.bikePreference = preference
+                }
             )
         case .noMatch:
             noMatchView
@@ -198,12 +200,12 @@ private struct DirectionResultView: View {
     let match: StationMatch
     let distanceText: String
     let directionText: String
-    let availabilityText: String
     let freshnessText: String?
     let isStale: Bool
     let headingDegrees: Double?
     let mode: SearchMode
     let accentColor: Color
+    let onBikePreferenceSelected: (BikePreference) -> Void
 
     var body: some View {
         VStack(spacing: 20) {
@@ -229,7 +231,11 @@ private struct DirectionResultView: View {
                     .multilineTextAlignment(.center)
                     .lineLimit(3)
 
-                AvailabilityBadges(station: match.station, mode: mode)
+                AvailabilityBadges(
+                    station: match.station,
+                    mode: mode,
+                    onBikePreferenceSelected: onBikePreferenceSelected
+                )
             }
 
             VStack(spacing: 6) {
@@ -245,14 +251,14 @@ private struct DirectionResultView: View {
             }
             .font(.footnote)
         }
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(distanceText) \(directionText). \(match.station.name). \(availabilityText).")
+        .accessibilityElement(children: .contain)
     }
 }
 
 private struct AvailabilityBadges: View {
     let station: BixiStation
     let mode: SearchMode
+    let onBikePreferenceSelected: (BikePreference) -> Void
 
     var body: some View {
         ViewThatFits(in: .horizontal) {
@@ -276,7 +282,9 @@ private struct AvailabilityBadges: View {
                     singular: "regular bike",
                     plural: "regular bikes",
                     systemImageName: "bicycle",
-                    color: AppTheme.Colors.regularBike
+                    color: AppTheme.Colors.regularBike,
+                    accessibilityHint: "Sets bike type to Any bike",
+                    action: { onBikePreferenceSelected(.any) }
                 )
             }
 
@@ -286,7 +294,9 @@ private struct AvailabilityBadges: View {
                     singular: "e-bike",
                     plural: "e-bikes",
                     systemImageName: "bolt.fill",
-                    color: AppTheme.Colors.electricBike
+                    color: AppTheme.Colors.electricBike,
+                    accessibilityHint: "Sets bike type to E-bike",
+                    action: { onBikePreferenceSelected(.electricRequired) }
                 )
             }
         case .docks:
@@ -307,12 +317,45 @@ private struct AvailabilityBadge: View {
     let plural: String
     let systemImageName: String
     let color: Color
+    let accessibilityHint: String?
+    let action: (() -> Void)?
+
+    init(
+        count: Int,
+        singular: String,
+        plural: String,
+        systemImageName: String,
+        color: Color,
+        accessibilityHint: String? = nil,
+        action: (() -> Void)? = nil
+    ) {
+        self.count = count
+        self.singular = singular
+        self.plural = plural
+        self.systemImageName = systemImageName
+        self.color = color
+        self.accessibilityHint = accessibilityHint
+        self.action = action
+    }
 
     private var label: String {
         count == 1 ? singular : plural
     }
 
     var body: some View {
+        if let action {
+            Button(action: action) {
+                badgeLabel
+            }
+            .buttonStyle(.plain)
+            .contentShape(Capsule())
+            .accessibilityHint(Text(accessibilityHint ?? ""))
+        } else {
+            badgeLabel
+        }
+    }
+
+    private var badgeLabel: some View {
         Label {
             Text("\(count) \(label)")
                 .foregroundStyle(.primary)
@@ -324,6 +367,7 @@ private struct AvailabilityBadge: View {
         .font(.headline)
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
+        .frame(minHeight: 44)
         .glassEffect(
             AppTheme.glass(tint: color.opacity(0.18)),
             in: Capsule()
