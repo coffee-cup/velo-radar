@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2B2740702FA169070062293E /* appicon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 2B27406F2FA169070062293E /* appicon.icon */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3A7F000A2FA000000000000A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -18,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		2B273E472F9FC6FE0062293E /* wherebixi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wherebixi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B27406F2FA169070062293E /* appicon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = appicon.icon; sourceTree = "<group>"; };
 		3A7F00012FA0000000000001 /* wherebixiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wherebixiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -55,6 +60,7 @@
 		2B273E3E2F9FC6FE0062293E = {
 			isa = PBXGroup;
 			children = (
+				2B27406F2FA169070062293E /* appicon.icon */,
 				2B273E492F9FC6FE0062293E /* wherebixi */,
 				3A7F00022FA0000000000002 /* wherebixiTests */,
 				2B273E482F9FC6FE0062293E /* Products */,
@@ -162,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B2740702FA169070062293E /* appicon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +331,7 @@
 		2B273E532F9FC7000062293E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -359,7 +366,7 @@
 		2B273E542F9FC7000062293E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = appicon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
