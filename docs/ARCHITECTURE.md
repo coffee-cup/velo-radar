@@ -19,7 +19,7 @@ The app avoids a map-first interaction. The primary interface is a simple direct
   - A large Find My-style directional arrow.
   - Distance and direction text.
   - Station name.
-  - Bike or dock availability.
+  - Bike or dock availability, with bike availability chips also acting as shortcuts for the requested bike type.
   - BIXI freshness/stale-data messaging.
   - A rider/dock count stepper supporting 1–9 bikes/docks, persisted locally across launches.
   - An "Any bike" vs "E-bike" segmented control for bike mode, persisted locally across launches.
